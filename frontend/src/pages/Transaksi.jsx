@@ -1,20 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Transaksi = () => {
-  // const [books, setBooks] = useState([]);
+  const [trans, setTrans] = useState([]);
 
   useEffect(() => {
     const fetchAllTrans = async () => {
       try {
-        const res = axios.get("http:localhost:8800/produk");
-        console.log(res);
+        const res = await axios.get("http://localhost:3100/produk");
+        setTrans(res.data);
       } catch (err) {
-        console.log(err);
+        console.error("Error fetching data:", err);
       }
     };
     fetchAllTrans();
-  });
+  }, []);
+
+  console.log(trans);
 
   return <div>Transaksi</div>;
 };

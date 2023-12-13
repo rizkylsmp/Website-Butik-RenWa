@@ -4,19 +4,26 @@ const express = require("express");
 const db = require("./connect");
 const cors = require("cors");
 const app = express();
-const port = 8800;
+const port = 3100;
 
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.json("THIS IS THE BACKEND");
+});
+
 app.get("/produk", (req, res) => {
   const sql = "SELECT * FROM produk";
   db.query(sql, (error, result) => {
     if (error) {
-      response(500, "invalid", "error", res);
+      console.log(error);
+      return res.json(error);
+      // response(500, "invalid", "error", res);
     }
-    response(200, result, "Get all data from produk", res);
+    return res.json(result);
+    // response(200, result, "Get all data from produk", res);
   });
 });
 
@@ -87,5 +94,5 @@ app.delete("/produk", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Localhost:${port}`);
+  console.log(`Backend : localhost:${port}`);
 });

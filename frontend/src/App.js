@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Transaksi from "./pages/Transaksi.jsx";
-import Add from "./pages/Add.jsx";
-import Update from "./pages/Update.jsx";
+import Transaksi from "./pages/Transaksi";
+import Add from "./pages/Add";
+import Update from "./pages/Update";
 
 function App() {
   return (
