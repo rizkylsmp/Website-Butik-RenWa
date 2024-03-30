@@ -3,16 +3,16 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
 
-const AdminPage = () => {
+const KaryawanPage = () => {
   return (
     <div>
       <Navbar />
       <div className="flex">
-        <Sidebar isAdmin />
+        <Sidebar isAdmin={false} />
         <Outlet />
       </div>
     </div>
   );
 };
 
-export default AdminPage;
+export default KaryawanPage;
