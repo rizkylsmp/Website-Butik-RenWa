@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const KembaliBarang = () => {
-  const [dataKaryawan] = useState([
-    { id: 1, jenisKelamin: "Pria", nama: "John Doe", totalPenjualan: 100 },
-    { id: 2, jenisKelamin: "Wanita", nama: "Jane Doe", totalPenjualan: 150 },
+  const [dataKembar] = useState([
+    { tanggal: 1, kodeBarang: "Pria", nama: "John Doe", jumlah: 100 },
+    { tanggal: 2, kodeBarang: "Wanita", nama: "Jane Doe", jumlah: 150 },
   ]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,8 +13,8 @@ const KembaliBarang = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-  const filteredItems = dataKaryawan.filter((karyawan) =>
-    karyawan.nama.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredItems = dataKembar.filter((barang) =>
+    barang.nama.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
@@ -41,7 +41,7 @@ const KembaliBarang = () => {
   return (
     <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded w-screen">
       <div className="mb-4 flex justify-between items-center">
-        <h2 className="text-[20px] font-bold">Data Karyawan</h2>
+        <h2 className="text-[20px] font-bold">Data Barang Kembali</h2>
 
         {/* ======================================================================================= */}
 
@@ -63,7 +63,7 @@ const KembaliBarang = () => {
             id="itemsPerPage"
             type="number"
             min="1"
-            max={dataKaryawan.length}
+            max={dataKembar.length}
             value={itemsPerPage}
             onChange={handleItemsPerPageChange}
             className="px-2 py-1 border border-gray-300 rounded-md"
@@ -79,7 +79,7 @@ const KembaliBarang = () => {
 
         <input
           type="text"
-          placeholder="Cari nama karyawan..."
+          placeholder="Cari nama barang..."
           value={searchTerm}
           onChange={handleSearch}
           className="px-2 py-1 border border-gray-300 rounded-md"
@@ -93,33 +93,33 @@ const KembaliBarang = () => {
         <thead>
           <tr>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              ID Karyawan
+              Tanggal
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              Jenis Kelamin
+              Kode Barang
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              Nama Karyawan
+              Nama Barang
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              Total Penjualan
+              Jumlah
             </th>
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((karyawan) => (
-            <tr key={karyawan.id}>
+          {currentItems.map((barang) => (
+            <tr key={barang.tanggal}>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {karyawan.id}
+                {barang.tanggal}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {karyawan.jenisKelamin}
+                {barang.kodeBarang}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {karyawan.nama}
+                {barang.nama}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {karyawan.totalPenjualan}
+                {barang.jumlah}
               </td>
             </tr>
           ))}

@@ -8,7 +8,7 @@ const AdminPage = () => {
     <div>
       <Navbar />
       <div className="flex">
-        <Sidebar isAdmin />
+        <Sidebar isAdmin/>
         <Outlet />
       </div>
     </div>

@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  ShoppingCartSimple,
+  Stack,
+  Users,
+  ChartBar,
+} from "@phosphor-icons/react";
 
 const Dashboard = () => {
   return (
@@ -6,10 +12,34 @@ const Dashboard = () => {
       <div className="flex flex-col gap-5">
         <div className="text-[20px] font-bold">Dashboard</div>
         <div className="grid grid-cols-2 gap-10">
-          <div className="p-10 bg-blue-400">Jumlah Terjual</div>
-          <div className="p-10 bg-green-400">Jumlah Produk</div>
-          <div className="p-10 bg-yellow-400">Jumlah Pengguna</div>
-          <div className="p-10 bg-red-400">Terjual Hari ini</div>
+          <div className="flex p-10 bg-blue-300">
+            <div className="flex flex-col w-60 gap-2 text-center">
+              <div className="text-5xl font-bold ">0</div>
+              <div className="font-semibold">Jumlah Terjual</div>
+            </div>
+            <ShoppingCartSimple size={80} color="#636363" weight="fill" />
+          </div>
+          <div className="flex p-10 bg-green-300">
+            <div className="flex flex-col w-60 gap-2 text-center">
+              <div className="text-5xl font-bold ">0</div>
+              <div className="font-semibold">Jumlah Produk</div>
+            </div>
+            <Stack size={80} color="#636363" weight="fill" className="" />
+          </div>
+          <div className="flex p-10 bg-yellow-300">
+            <div className="flex flex-col w-60 gap-2 text-center">
+              <div className="text-5xl font-bold ">0</div>
+              <div className="font-semibold">Jumlah Pengguna</div>
+            </div>
+            <Users size={80} color="#636363" weight="fill" className="" />
+          </div>
+          <div className="flex p-10 bg-red-300">
+            <div className="flex flex-col w-60 gap-2 text-center">
+              <div className="text-5xl font-bold ">0</div>
+              <div className="font-semibold">Terjual Hari ini</div>
+            </div>
+            <ChartBar size={80} color="#636363" weight="fill" className="" />
+          </div>
         </div>
       </div>
     </div>
