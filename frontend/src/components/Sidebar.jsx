@@ -64,7 +64,7 @@ const Sidebar = ({ isAdmin }) => {
   const links = isAdmin ? adminLinks : karyawanLinks;
 
   return (
-    <div className="bg-[#EFE6E6] h-full w-3/12">
+    <div className="bg-[#EFE6E6] h-full w-3/12 z-50">
       <div className="flex items-center gap-2 p-5">
         <UserCircle size={56} weight="fill" />
         <div className="font-semibold">User</div>
