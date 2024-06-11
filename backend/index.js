@@ -36,7 +36,8 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: "http://https://renwa-frontend.vercel.app/:3000",
+    origin: "https://renwa-frontend.vercel.app",
+    // origin: "http://localhost/:3000",
   })
 );
 
