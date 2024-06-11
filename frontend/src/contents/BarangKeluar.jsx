@@ -2,8 +2,18 @@ import React, { useState } from "react";
 
 const BarangKeluar = () => {
   const [dataBarkel] = useState([
-    { tanggal: 1, noTransaksi: "Pria", nama: "John Doe", jumlah: 100 },
-    { tanggal: 2, noTransaksi: "Wanita", nama: "Jane Doe", jumlah: 150 },
+    {
+      tanggal: "01-01-2024",
+      noTransaksi: "10001",
+      nama: "Rok",
+      jumlah: 30,
+    },
+    {
+      tanggal: "02-01-2024",
+      noTransaksi: "10001",
+      nama: "Baju",
+      jumlah: 20,
+    },
   ]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,7 +49,7 @@ const BarangKeluar = () => {
   };
 
   return (
-    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded w-screen">
+    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded">
       <div className="mb-4 flex justify-between items-center">
         <h2 className="text-[20px] font-bold">Data Barang</h2>
 
@@ -93,10 +103,10 @@ const BarangKeluar = () => {
         <thead>
           <tr>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              Tanggal
+              No Transaksi
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              No Transaksi
+              Tanggal
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
               Nama Barang
@@ -110,10 +120,10 @@ const BarangKeluar = () => {
           {currentItems.map((barang) => (
             <tr key={barang.noTransaksi}>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {barang.tanggal}
+                {barang.noTransaksi}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {barang.noTransaksi}
+                {barang.tanggal}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                 {barang.nama}

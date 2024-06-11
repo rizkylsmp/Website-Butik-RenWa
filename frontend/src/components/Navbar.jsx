@@ -1,11 +1,11 @@
 import React from "react";
-import Logo from "../assets/LOGO.jpeg";
+import { UserCircle } from "@phosphor-icons/react";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#DAC2C2] p-3 flex gap-3 items-center pl-5">
-      <img src={Logo} alt="" className="w-[60px] h-[6aku 0px]" />
-      <div className="font-bold text-[25px]">RenWA</div>
+    <div className="border-b-2 p-3 mr-3 flex gap-2 items-center pl-5 justify-end">
+      <UserCircle size={40} weight="fill" />
+      <div className="font-semibold">User</div>
     </div>
   );
 };

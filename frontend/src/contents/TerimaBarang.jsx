@@ -2,8 +2,18 @@ import React, { useState } from "react";
 
 const TerimaBarang = () => {
   const [dataTerbar] = useState([
-    { tanggal: 1, kodeBarang: "Pria", nama: "John Doe", jumlah: 100 },
-    { tanggal: 2, kodeBarang: "Wanita", nama: "Jane Doe", jumlah: 150 },
+    {
+      tanggal: "01-01-2024",
+      kodeBarang: "1001",
+      nama: "Rok",
+      jumlah: 10,
+    },
+    {
+      tanggal: "02-01-2024",
+      kodeBarang: "1002",
+      nama: "Baju",
+      jumlah: 20,
+    },
   ]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,7 +49,7 @@ const TerimaBarang = () => {
   };
 
   return (
-    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded w-screen">
+    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded">
       <div className="mb-4 flex justify-between items-center">
         <h2 className="text-[20px] font-bold">Data Terima Barang</h2>
 
@@ -93,11 +103,12 @@ const TerimaBarang = () => {
         <thead>
           <tr>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              Tanggal
-            </th>
-            <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
               Kode Barang
             </th>
+            <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
+              Tanggal
+            </th>
+
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
               Nama Barang
             </th>
@@ -108,13 +119,14 @@ const TerimaBarang = () => {
         </thead>
         <tbody>
           {currentItems.map((barang) => (
-            <tr key={barang.tanggal}>
-              <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {barang.tanggal}
-              </td>
+            <tr key={barang.kodeBarang}>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                 {barang.kodeBarang}
               </td>
+              <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                {barang.tanggal}
+              </td>
+
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                 {barang.nama}
               </td>

@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ShoppingCartSimple,
   Stack,
   Users,
   ChartBar,
 } from "@phosphor-icons/react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getMe } from "../features/authSlice";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isError } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isError) {
+      navigate("/");
+    }
+  }, [isError, navigate]);
+
   return (
-    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded w-screen">
+    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded">
       <div className="flex flex-col gap-5">
         <div className="text-[20px] font-bold">Dashboard</div>
         <div className="grid grid-cols-2 gap-10">

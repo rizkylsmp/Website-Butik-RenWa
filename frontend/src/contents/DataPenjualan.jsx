@@ -1,14 +1,26 @@
 import React, { useState } from "react";
+import FormAddPenjualan from "../functions/FormAddPenjualan.jsx";
 
 const DataPenjualan = () => {
-  const [dataPenjualan] = useState([
-    { tgl: 1, noTransaksi: "Pria", nama: "John Doe", pemasukan: 100 },
-    { tgl: 2, noTransaksi: "Wanita", nama: "Jane Doe", pemasukan: 150 },
+  const [dataPenjualan, setDataPenjualan] = useState([
+    {
+      tanggal: "01-01-2024",
+      noTransaksi: "10001",
+      nama: "Rok",
+      pemasukan: 10.0,
+    },
+    {
+      tanggal: "02-01-2024",
+      noTransaksi: "10002",
+      nama: "Baju",
+      pemasukan: 20.0,
+    },
   ]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showForm, setShowForm] = useState(false);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -38,15 +50,22 @@ const DataPenjualan = () => {
     setCurrentPage(1);
   };
 
+  const handleAddData = (newData) => {
+    setDataPenjualan((prevData) => [...prevData, newData]);
+  };
+
   return (
-    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded w-screen">
+    <div className="p-5 m-5 h-fit bg-[#D9D9D9] rounded">
       <div className="mb-4 flex justify-between items-center">
         <h2 className="text-[20px] font-bold">Data Penjualan</h2>
 
         {/* ======================================================================================= */}
 
         {/* Button Input */}
-        <button className="bg-[#F4C5C5] hover:bg-[#e4b8b8] font-semibold py-2 px-4 rounded">
+        <button
+          className="bg-[#F4C5C5] hover:bg-[#e4b8b8] font-semibold py-2 px-4 rounded"
+          onClick={() => setShowForm(true)}
+        >
           Tambah Data
         </button>
       </div>
@@ -93,10 +112,10 @@ const DataPenjualan = () => {
         <thead>
           <tr>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              Tanggal
+              No Transaksi
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
-              No Transaksi
+              Tanggal
             </th>
             <th className="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 tracking-wider">
               Nama Barang
@@ -110,10 +129,10 @@ const DataPenjualan = () => {
           {currentItems.map((penjualan) => (
             <tr key={penjualan.noTransaksi}>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {penjualan.tgl}
+                {penjualan.noTransaksi}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
-                {penjualan.noTransaksi}
+                {penjualan.tanggal}
               </td>
               <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                 {penjualan.nama}
@@ -153,6 +172,11 @@ const DataPenjualan = () => {
           Selanjutnya
         </button>
       </div>
+      <FormAddPenjualan
+        show={showForm}
+        onClose={() => setShowForm(false)}
+        onSave={handleAddData}
+      />
     </div>
   );
 };

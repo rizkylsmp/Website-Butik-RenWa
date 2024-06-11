@@ -14,7 +14,21 @@ const Users = db.define(
         notEmpty: true,
       },
     },
-    name: {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isUsername(value) {
+          if (!/^[a-zA-Z0-9]{3,20}$/.test(value)) {
+            throw new Error(
+              "Username harus alphanumeric dan panjang antara 3-20 karakter"
+            );
+          }
+        },
+      },
+    },
+    nama: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -22,12 +36,11 @@ const Users = db.define(
         len: [3, 100],
       },
     },
-    email: {
+    jenisKelamin: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true,
-        isEmail: true,
       },
     },
     password: {

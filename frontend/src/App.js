@@ -23,8 +23,8 @@ function App() {
             <Route path="kembali-barang" element={<KembaliBarang />} />
             <Route path="data-penjualan" element={<DataPenjualan />} />
           </Route>
-          <Route path="/admin" element={<AdminPage />} >
-            <Route path="dashboard" element={<Dashboard />}/>
+          <Route path="/admin" element={<AdminPage />}>
+            <Route path="dashboard" element={<Dashboard />} />
             <Route path="barang-keluar" element={<BarangKeluar />} />
             <Route path="barang-masuk" element={<BarangMasuk />} />
             <Route path="data-karyawan" element={<DataKaryawan />} />
